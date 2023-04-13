@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ITrain } from 'src/app/Shared/Interfaces/ITrain';
+import { IAddTrain, ITrain } from 'src/app/Shared/Interfaces/ITrain';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 
@@ -16,4 +16,14 @@ export class TrainsService {
   getAllTrains(){
     return this.http.get<ITrain[]>(this.baseUrl+"GetAllTrains");
   }
+
+  AddNewTrain(train : IAddTrain){
+    return this.http.post(this.baseUrl+"AddNewTrain", train);
+  }
+
+  
+  DeleteTrain(id :number){
+    return this.http.delete(this.baseUrl+"DeleteTrain/"+id);
+  }
+
 }

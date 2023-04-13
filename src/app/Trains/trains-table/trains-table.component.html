@@ -46,7 +46,7 @@
                         <td>{{train.firstClassSeats}}</td>
                         <td>{{train.secondClassSeats}}</td>
                         <td class="text-center"><a class="btn btn-warning text-center">Update</a></td>
-                        <td class="text-center"><a class="btn btn-danger text-center">Delete</a></td>
+                        <td class="text-center"><a (click)="deleteTrain(train.id)" class="btn btn-danger text-center">Delete</a></td>
                       </tr>
                 </tbody>
               

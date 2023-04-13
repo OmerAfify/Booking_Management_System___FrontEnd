@@ -23,4 +23,12 @@ trainsList : ITrain[];
     })
   }
 
+  deleteTrain(id:number){
+    this._trainService.DeleteTrain(id).subscribe((response)=>{
+      //notification deleted successfully!
+      console.log("done");
+      this.getAllTrains();
+    })
+  }
+
 }

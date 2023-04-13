@@ -1,0 +1,68 @@
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Trains Table</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Trains</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">This is the List of the trains :</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example2" class="table table-bordered table-hover">
+                  <thead>
+                  <tr>
+                    <th>Train Id</th>
+                    <th>Train Name</th>
+                    <th>First Class Seats</th>
+                    <th>Second Class Seats</th>
+                    <th></th>
+                    <th></th>
+                  </tr>
+                  </thead>
+                <tbody>
+                    <tr *ngFor="let train of trainsList">
+                        <td>{{train.id}}</td>
+                        <td>{{train.name}}</td>
+                        <td>{{train.firstClassSeats}}</td>
+                        <td>{{train.secondClassSeats}}</td>
+                        <td class="text-center"><a class="btn btn-warning text-center">Update</a></td>
+                        <td class="text-center"><a class="btn btn-danger text-center">Delete</a></td>
+                      </tr>
+                </tbody>
+              
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+         
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->

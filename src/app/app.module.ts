@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 
 import { CoreModule } from './Core/Core.module';
 import { HomeModule } from './Home/Home.module';
+import { TrainsModule } from './Trains/Trains.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { HomeModule } from './Home/Home.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     CoreModule,
+    TrainsModule,
     HomeModule
   ],
   providers: [],

@@ -11,6 +11,8 @@ export class TrainsTableComponent implements OnInit {
 
 trainsList : ITrain[];
 
+trainIdToDelete:number;
+
   constructor(private _trainService : TrainsService, private toastr:ToastrService) { }
 
   ngOnInit(): void {
@@ -29,6 +31,10 @@ trainsList : ITrain[];
         
       this.getAllTrains();
     })
+  }
+
+  onDeleteSelected(id:number){
+    this.trainIdToDelete = id;
   }
 
 }

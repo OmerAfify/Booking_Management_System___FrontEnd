@@ -25,7 +25,11 @@
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">This is the List of the trains :</h3>
-                <button class="btn btn-success float-right col-3" routerLink="/AddTrain" >Add a new Train</button>
+
+
+
+             
+             <button class="btn btn-success float-right col-3" routerLink="/AddTrain" >Add a new Train</button>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -47,7 +51,13 @@
                         <td>{{train.firstClassSeats}}</td>
                         <td>{{train.secondClassSeats}}</td>
                         <td class="text-center"><a routerLink="/UpdateTrain/{{train.id}}"  class="btn btn-primary text-center">Update</a></td>
-                        <td class="text-center"><a (click)="deleteTrain(train.id)" class="btn btn-danger text-center">Delete</a></td>
+                        <td class="text-center">
+                               
+                <!-- Button trigger modal to delete. Modal is down. -->
+<button type="button"  (click)="onDeleteSelected(train.id)" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter">Delete</button>
+                          <!-- <a (click)="deleteTrain(train.id)" class="btn btn-danger text-center">Delete</a> -->
+                      
+                        </td> 
                       </tr>
                 </tbody>
               
@@ -67,3 +77,25 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Delete Train</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to delete train ID : {{trainIdToDelete}} ?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="deleteTrain(trainIdToDelete)" >Delete</button>
+      </div>
+    </div>
+  </div>
+</div>

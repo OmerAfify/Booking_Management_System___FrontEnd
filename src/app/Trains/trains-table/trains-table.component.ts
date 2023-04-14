@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { TrainsService } from 'src/app/Core/Services/trains.service';
 import { ITrain } from 'src/app/Shared/Interfaces/ITrain';
 
 @Component({
   selector: 'app-trains-table',
-  templateUrl: './trains-table.component.html',
-  styleUrls: ['./trains-table.component.scss']
+  templateUrl: './trains-table.component.html'
 })
 export class TrainsTableComponent implements OnInit {
 
 trainsList : ITrain[];
 
-  constructor(private _trainService : TrainsService) { }
+  constructor(private _trainService : TrainsService, private toastr:ToastrService) { }
 
   ngOnInit(): void {
     this.getAllTrains();
@@ -25,8 +25,8 @@ trainsList : ITrain[];
 
   deleteTrain(id:number){
     this._trainService.DeleteTrain(id).subscribe((response)=>{
-      //notification deleted successfully!
-      console.log("done");
+      this.toastr.error(`train ${id} is removed successfully!` );
+        
       this.getAllTrains();
     })
   }

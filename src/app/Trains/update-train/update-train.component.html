@@ -6,19 +6,20 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Add a New Train Form</h1>
+            <h1>Update Train Form</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Add a New Train</li>
+              <li class="breadcrumb-item"><a href="#">Update Train</a></li>
+              <li class="breadcrumb-item active">{{id}}</li>
             </ol>
           </div>
         </div>
       </div><!-- /.container-fluid -->
     </section>
 
-   <!-- Main content -->
+    <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
        <div class="row">
@@ -26,13 +27,13 @@
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Trains Form</h3>
+                <h3 class="card-title">Update Train Form</h3>
               </div>
               <!-- /.card-header -->
 
 
               <!-- form start -->
-              <form [formGroup]="AddNewTrainForm" (ngSubmit)="onSubmitForm()">
+              <form [formGroup]="UpdateTrainForm" (ngSubmit)="onSubmitForm()">
                 <div class="card-body">
 <!--server errors-->
 <div *ngIf="serverValidationErrors!=null">

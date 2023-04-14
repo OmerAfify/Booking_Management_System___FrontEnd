@@ -17,8 +17,17 @@ export class TrainsService {
     return this.http.get<ITrain[]>(this.baseUrl+"GetAllTrains");
   }
 
+  getTrainById(id:number){
+    return this.http.get<ITrain>(this.baseUrl+"GetTrainById/"+id);
+  }
+
   AddNewTrain(train : IAddTrain){
     return this.http.post(this.baseUrl+"AddNewTrain", train);
+  }
+
+  
+  UpdateTrain(id:number ,updatedtrain : IAddTrain){
+    return this.http.put(this.baseUrl+"UpdateTrain/"+id, updatedtrain );
   }
 
   

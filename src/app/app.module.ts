@@ -8,6 +8,8 @@ import { CoreModule } from './Core/Core.module';
 import { HomeModule } from './Home/Home.module';
 import { TrainsModule } from './Trains/Trains.module';
 import { HttpClientModule } from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -17,9 +19,16 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      timeOut: 3000,
+    }),
+
     CoreModule,
     TrainsModule,
     HomeModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

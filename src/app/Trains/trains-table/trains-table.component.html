@@ -25,6 +25,7 @@
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">This is the List of the trains :</h3>
+                <button class="btn btn-success float-right col-3" routerLink="/AddTrain" >Add a new Train</button>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -45,7 +46,7 @@
                         <td>{{train.name}}</td>
                         <td>{{train.firstClassSeats}}</td>
                         <td>{{train.secondClassSeats}}</td>
-                        <td class="text-center"><a class="btn btn-warning text-center">Update</a></td>
+                        <td class="text-center"><a routerLink="/UpdateTrain/{{train.id}}"  class="btn btn-primary text-center">Update</a></td>
                         <td class="text-center"><a (click)="deleteTrain(train.id)" class="btn btn-danger text-center">Delete</a></td>
                       </tr>
                 </tbody>

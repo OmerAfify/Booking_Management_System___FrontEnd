@@ -3,11 +3,12 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TrainsService } from 'src/app/Core/Services/trains.service';
 import { IAddTrain } from 'src/app/Shared/Interfaces/ITrain';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-add-new-train',
-  templateUrl: './add-new-train.component.html',
-  styleUrls: ['./add-new-train.component.scss']
+  templateUrl: './add-new-train.component.html'
+ 
 })
 export class AddNewTrainComponent implements OnInit {
 
@@ -19,7 +20,7 @@ AddNewTrainForm = new FormGroup({
 
 serverValidationErrors : string[] | null = null;
 
-  constructor(private _trainService:TrainsService, private router:Router) { }
+  constructor(private _trainService:TrainsService, private router:Router, private toastr:ToastrService) { }
 
   ngOnInit(): void {
   }
@@ -34,9 +35,10 @@ serverValidationErrors : string[] | null = null;
  };  
 
     this._trainService.AddNewTrain(train).subscribe((response)=>{
-      //notification of added successfully !
+    
       this.AddNewTrainForm.reset();
       this.router.navigate(["/Trains"]);
+      this.toastr.success("Train is added successfully!")
     },(error) =>{
       this.serverValidationErrors = error.error.errors;
     })

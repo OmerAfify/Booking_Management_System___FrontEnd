@@ -22,9 +22,10 @@
           <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           
-              <li class="nav-header">Trains</li> 
-             
-              <li class="nav-item">
+            <!--TRAINS--> 
+            <li class="nav-header">Trains</li> 
+           
+            <li class="nav-item">
                 <a  class="nav-link">
                   <i class="nav-icon fas fa-train"></i>
                   <p>
@@ -48,6 +49,37 @@
                 
                 </ul>
               </li>
+              <!--END OF TRAINS-->
+
+              <!--ROUTES-->
+              <li class="nav-header">Routes</li> 
+           
+              <li class="nav-item">
+                <a  class="nav-link">
+                  <i class="nav-icon fas fa-route"></i>
+                  <p>
+                    Routes
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a routerLink="/Routes" class="nav-link">
+                      <i class="fas fa-table nav-icon"></i>
+                      <p>View Routes List</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a routerLink="/AddRoute" class="nav-link">
+                      <i class="fas fa-plus nav-icon"></i>
+                      <p>Add a New Route</p>
+                    </a>
+                  </li>
+                
+                </ul>
+              </li>
+          
+              <!--END OF ROUTES-->
           
               <li class="nav-header">NAV HEADER TITLE</li> 
               <li class="nav-item">

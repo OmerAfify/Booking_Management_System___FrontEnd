@@ -10,6 +10,7 @@ import { TrainsModule } from './Trains/Trains.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RoutesModule } from './Routes/Routes.module';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
     CoreModule,
     TrainsModule,
+    RoutesModule,
     HomeModule
 
   ],

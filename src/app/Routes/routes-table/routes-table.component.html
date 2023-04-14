@@ -1,0 +1,99 @@
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Routes Table</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Routes</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">This is the List of the Routes :</h3>
+
+
+
+             
+             <button class="btn btn-success float-right col-3" routerLink="/AddRoute" >Add a new Route</button>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example2" class="table table-bordered table-hover">
+                  <thead>
+                  <tr>
+                    <th>Route Id</th>
+                    <th>From (Departure)</th>
+                    <th>To (Arrival)</th>
+                     <th></th>
+                    <th></th>
+                  </tr>
+                  </thead>
+                <tbody>
+                    <tr *ngFor="let route of routesList">
+                        <td>{{route.id}}</td>
+                        <td>{{route.departure}}</td>
+                        <td>{{route.arrival}}</td>
+                         <td class="text-center"><a routerLink="/UpdateRoute/{{route.id}}"  class="btn btn-primary text-center">Update</a></td>
+                        <td class="text-center">
+                               
+                <!-- Button trigger modal to delete. Modal is down. -->
+<button type="button"  (click)="onDeleteSelected(route.id)" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter">Delete</button>
+                          <!-- <a (click)="deleteRoute(route.id)" class="btn btn-danger text-center">Delete</a> -->
+                      
+                        </td> 
+                      </tr>
+                </tbody>
+              
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+         
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Delete Route</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to delete Route ID : {{routeIdToDelete}} ?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="deleteRoute(routeIdToDelete)" >Delete</button>
+      </div>
+    </div>
+  </div>
+</div>

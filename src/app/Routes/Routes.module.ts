@@ -6,6 +6,7 @@ import { RoutesTableComponent } from './routes-table/routes-table.component';
 import { UpdateRouteComponent } from './update-route/update-route.component';
 import { CoreModule } from '../Core/Core.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DataTablesModule } from 'angular-datatables';
 
 
 
@@ -15,6 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     CoreModule,
     ReactiveFormsModule,
+    DataTablesModule,
      RouterModule.forChild([{path:"Routes", component:RoutesTableComponent},
     {path:"AddRoute", component:AddNewRouteComponent},
     {path:"UpdateRoute/:id", component:UpdateRouteComponent}])

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
+import { Subject } from 'rxjs';
 import { RoutesService } from 'src/app/Core/Services/routes.service';
 import { IRoute } from 'src/app/Shared/Interfaces/IRoute';
 
@@ -11,6 +12,9 @@ export class RoutesTableComponent implements OnInit {
 
 routesList : IRoute[];
 
+dtOptions: DataTables.Settings = {};
+dtTrigger: Subject<any> = new Subject<any>();
+
 routeIdToDelete:number;
 
   constructor(private _routeService : RoutesService, private toastr:ToastrService) { }
@@ -21,7 +25,8 @@ routeIdToDelete:number;
 
   getAllRoutes(){
     this._routeService.getAllRoutes().subscribe((routes)=>{
-      this.routesList = routes;
+      this.routesList = routes;  
+      this.dtTrigger.next();
     })
   }
 
@@ -35,6 +40,10 @@ routeIdToDelete:number;
 
   onDeleteSelected(id:number){
     this.routeIdToDelete = id;
+  }
+
+  ngOnDestroy(): void {
+    this.dtTrigger.unsubscribe();
   }
 
 }

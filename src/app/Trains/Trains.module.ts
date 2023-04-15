@@ -6,6 +6,7 @@ import { CoreModule } from '../Core/Core.module';
 import { AddNewTrainComponent } from './add-new-train/add-new-train.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UpdateTrainComponent } from './update-train/update-train.component';
+import { DataTablesModule } from 'angular-datatables';
 
 
 
@@ -19,6 +20,7 @@ import { UpdateTrainComponent } from './update-train/update-train.component';
     CommonModule,
     CoreModule,
     ReactiveFormsModule,
+    DataTablesModule,
     RouterModule.forChild([{path:"Trains", component:TrainsTableComponent},
      {path:"AddTrain", component:AddNewTrainComponent},
      {path:"UpdateTrain/:id", component:UpdateTrainComponent}])

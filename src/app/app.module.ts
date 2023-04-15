@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RoutesModule } from './Routes/Routes.module';
+import { DataTablesModule } from 'angular-datatables';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { RoutesModule } from './Routes/Routes.module';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    DataTablesModule,
 
     BrowserAnimationsModule,
     ToastrModule.forRoot({

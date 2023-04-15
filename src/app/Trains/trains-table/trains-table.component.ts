@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
+import { Subject } from 'rxjs';
 import { TrainsService } from 'src/app/Core/Services/trains.service';
 import { ITrain } from 'src/app/Shared/Interfaces/ITrain';
 
@@ -7,11 +8,14 @@ import { ITrain } from 'src/app/Shared/Interfaces/ITrain';
   selector: 'app-trains-table',
   templateUrl: './trains-table.component.html'
 })
-export class TrainsTableComponent implements OnInit {
+export class TrainsTableComponent implements OnInit,OnDestroy {
 
 trainsList : ITrain[];
 
 trainIdToDelete:number;
+
+dtOptions: DataTables.Settings = {};
+dtTrigger: Subject<any> = new Subject<any>();
 
   constructor(private _trainService : TrainsService, private toastr:ToastrService) { }
 
@@ -22,6 +26,7 @@ trainIdToDelete:number;
   getAllTrains(){
     this._trainService.getAllTrains().subscribe((trains)=>{
       this.trainsList = trains;
+      this.dtTrigger.next();
     })
   }
 
@@ -35,6 +40,10 @@ trainIdToDelete:number;
 
   onDeleteSelected(id:number){
     this.trainIdToDelete = id;
+  }
+
+  ngOnDestroy(): void {
+    this.dtTrigger.unsubscribe();
   }
 
 }

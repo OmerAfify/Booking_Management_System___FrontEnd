@@ -12,6 +12,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RoutesModule } from './Routes/Routes.module';
 import { DataTablesModule } from 'angular-datatables';
+import { SchedulesModule } from './Schedules/Schedules.module';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { DataTablesModule } from 'angular-datatables';
     CoreModule,
     TrainsModule,
     RoutesModule,
-    HomeModule
+    HomeModule,
+    SchedulesModule
 
   ],
   providers: [],

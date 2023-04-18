@@ -12,7 +12,10 @@ export class RoutesTableComponent implements OnInit {
 
 routesList : IRoute[];
 
-dtOptions: DataTables.Settings = {};
+dtOptions: DataTables.Settings = {
+destroy:true,
+retrieve:true
+};
 dtTrigger: Subject<any> = new Subject<any>();
 
 routeIdToDelete:number;

@@ -31,6 +31,8 @@
               <!-- /.card-header -->
 
 
+
+
               <!-- form start -->
               <form [formGroup]="AddNewRouteForm" (ngSubmit)="onSubmitForm()">
                 <div class="card-body">
@@ -44,12 +46,12 @@
 </div>
 <!--end-of server errors-->
 
-
-                  <div class="form-group">
+                <div class="form-group">
                     <label for="name">Departure</label>
                     <input [class.border-danger]="!isFieldValid('departure')" type="text" formControlName="departure" class="form-control" id="name" placeholder="Departure">
                     <span  *ngIf="!isFieldValid('departure')" class="text-danger">Please enter a Departure name.</span>
                 </div>
+
                 <div class="form-group">
                   <label for="name">Arrival</label>
                   <input [class.border-danger]="!isFieldValid('arrival')" type="text" formControlName="arrival" class="form-control" id="name" placeholder="Arrival">

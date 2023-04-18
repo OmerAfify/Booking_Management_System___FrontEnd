@@ -1,0 +1,149 @@
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>Update Schedule form</h1>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active">Update Schedule</li>
+            <li class="breadcrumb-item active">{{id}}</li>
+          </ol>
+        </div>
+      </div>
+    </div><!-- /.container-fluid -->
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+       <div class="col-md-12">
+        <div class="card card-primary">
+            <div class="card-header">
+              <h3 class="card-title">Update Schedule</h3>
+            </div>
+<form [formGroup]="UpdateScheduleForm" (ngSubmit)="onSubmitForm()">
+    <div class="card-body">
+<!--server errors-->
+<div *ngIf="serverValidationErrors!=null">
+<ul class="text-danger">
+    <li *ngFor="let error of serverValidationErrors">
+        {{error}}
+    </li>
+</ul>
+</div>
+<!--end-of server errors-->
+
+          <!-- row 1 -->
+           <div class="row">
+                  <!-- Date and Time -->
+                    <div class="form-group col-4">
+                    
+                        <label>Date and Time:</label>
+                        <div class="form-group">
+                                   
+                   <mat-form-field>
+                    <input matInput formControlName="date" [ngxMatDatetimePicker]="mypicker" placeholder="Choose a date" 
+                       [min]="minDate" [max]="maxDate">
+                    <mat-datepicker-toggle matSuffix [for]="$any(mypicker)"></mat-datepicker-toggle>
+                    <ngx-mat-datetime-picker #mypicker [showSpinners]="true" [showSeconds]="false"
+                       [stepHour]="1" [stepMinute]="1" [stepSecond]="1"
+                       [touchUi]="true" [enableMeridian]="true"
+                       [disableMinute]="false" [hideTime]="false"></ngx-mat-datetime-picker>
+                 </mat-form-field>
+                 <br>
+                 <span  *ngIf="!isFieldValid('date')" class="text-danger">Please enter valid date and time.</span>
+           
+                </div>
+                  
+            </div>
+                  <!--Date and Time-->
+
+                    <!-- route  -->
+                    <div class="form-group col-4">
+                      <label>Route :</label>
+                      <div class="form-group">
+                      
+                        <select formControlName="routeId" name="route" id="route" class="form-control">
+                        <option *ngFor="let route of routesList" value="{{route.id}}">{{route.departure}} to {{route.arrival}}</option>
+                        </select>
+                        <span  *ngIf="!isFieldValid('routeId')" class="text-danger">select a valid route.</span>
+              
+                      </div>
+                      <!-- /.input group -->
+                    </div>
+                    <!-- end of route-->
+
+                       <!-- trian  -->
+                       <div class="form-group col-4">
+                        <label>Train :</label>
+
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                          </div>   
+                          <select formControlName="trainId" name="train" id="train" class="form-control">
+                            <option *ngFor="let train of trainsList" value="{{train.id}}">{{train.name}}</option>
+                            </select>
+                        
+                      
+                        </div>
+                        <span *ngIf="!isFieldValid('trainId')" class="text-danger">Please select a valid train.</span>
+              
+                        <!-- /.input group -->
+                      </div>
+                      <!-- end of train-->
+
+           </div>
+          <!-- end of row 1 -->
+
+          <!-- row 2 -->
+          <div class="row">
+
+            <div class="form-group col-6">
+              <label for="name">First class Price</label>
+              <input [class.border-danger]="!isFieldValid('firstClassPrice')" formControlName="firstClassPrice" type="number" class="form-control" id="name" placeholder="Price $">
+              <span  *ngIf="!isFieldValid('firstClassPrice')" class="text-danger">Please enter a value between 1 and 10000.</span>
+            </div>
+
+          <div class="form-group col-6">
+            <label for="name2">Second class Price</label>
+            <input [class.border-danger]="!isFieldValid('secondClassPrice')" formControlName="secondClassPrice" type="number" class="form-control" id="name2" placeholder="Price $">
+            <span  *ngIf="!isFieldValid('secondClassPrice')" class="text-danger">Please enter a value between 1 and 10000.</span>
+              
+          </div>
+
+
+         </div>
+         <!-- end of row 2  -->
+
+    </div>
+   <!-- /.card-body -->
+
+  <div class="card-footer">
+    <button  type="reset" class="btn btn-danger offset-2 col-md-3">Reset</button>
+    <button type="submit" [disabled]="!isFormValid()" class="btn btn-success offset-2 col-md-3">Update</button>
+  </div>
+</form>
+                      
+</div>
+ <!-- /.card -->
+
+    <!-- /.card -->
+        </div>
+        <!-- /.col (right) -->
+      </div>
+      <!-- /.row -->
+
+    </div>
+    <!-- /.container-fluid -->
+  </section>
+  <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+

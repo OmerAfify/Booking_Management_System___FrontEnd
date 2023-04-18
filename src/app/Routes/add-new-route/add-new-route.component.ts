@@ -25,7 +25,6 @@ serverValidationErrors : string[] | null = null;
   }
 
 
-
   onSubmitForm(){
     let route :IAddRoute = {
               departure : this.AddNewRouteForm.get("departure")?.value??null,

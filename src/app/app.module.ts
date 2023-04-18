@@ -14,6 +14,10 @@ import { RoutesModule } from './Routes/Routes.module';
 import { DataTablesModule } from 'angular-datatables';
 import { SchedulesModule } from './Schedules/Schedules.module';
 
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatInputModule } from '@angular/material/input';
+import { MatNativeDateModule } from '@angular/material/core';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -24,10 +28,15 @@ import { SchedulesModule } from './Schedules/Schedules.module';
     HttpClientModule,
     DataTablesModule,
 
+
+
     BrowserAnimationsModule,
     ToastrModule.forRoot({
       timeOut: 3000,
     }),
+    MatDatepickerModule,
+    MatInputModule,
+    MatNativeDateModule,
 
     CoreModule,
     TrainsModule,

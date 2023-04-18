@@ -14,3 +14,8 @@ export interface ISchedule extends IAddSchedule {
     secondClassAvailableBookings: number,
 }
 
+export interface IViewSchedule extends IAddSchedule,ISchedule { 
+    dateOnly:string,
+    timeOnly:string
+}
+

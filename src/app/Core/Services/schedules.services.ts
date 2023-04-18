@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { IAddSchedule, ISchedule } from 'src/app/Shared/Interfaces/ISchedule';
-
+import { IAddSchedule, ISchedule, IViewSchedule } from 'src/app/Shared/Interfaces/ISchedule';
+import {map} from 'rxjs/operators'
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +17,8 @@ export class SchedulesService {
     return this.http.get<ISchedule[]>(this.baseUrl+"GetAllSchedules");
   }
 
-  getTrainById(id:number){
+
+  getScheduleById(id:number){
     return this.http.get<ISchedule>(this.baseUrl+"GetScheduleById/"+id);
   }
 
@@ -26,9 +27,9 @@ export class SchedulesService {
   }
 
   
-  // UpdateTrain(id:number ,updatedtrain : IAddTrain){
-  //   return this.http.put(this.baseUrl+"UpdateTrain/"+id, updatedtrain );
-  // }
+  UpdateSchedule(id:number ,updatedSchedule : IAddSchedule){
+    return this.http.put(this.baseUrl+"UpdateSchedule/"+id, updatedSchedule );
+  }
 
   
   DeleteSchedule(id :number){

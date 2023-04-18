@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { DataTableDirective } from 'angular-datatables';
 import { ToastrService } from 'ngx-toastr';
 import { Subject } from 'rxjs';
 import { TrainsService } from 'src/app/Core/Services/trains.service';
@@ -14,7 +15,9 @@ trainsList : ITrain[];
 
 trainIdToDelete:number;
 
-dtOptions: DataTables.Settings = {};
+
+dtOptions: DataTables.Settings = { destroy:true,
+  retrieve:true };
 dtTrigger: Subject<any> = new Subject<any>();
 
   constructor(private _trainService : TrainsService, private toastr:ToastrService) { }
@@ -30,10 +33,12 @@ dtTrigger: Subject<any> = new Subject<any>();
     })
   }
 
+
+
   deleteTrain(id:number){
     this._trainService.DeleteTrain(id).subscribe((response)=>{
-      this.toastr.error(`train ${id} is removed successfully!` );
-        
+      this.toastr.error(`train ${id} is removed successfully!`);
+
       this.getAllTrains();
     })
   }
@@ -41,6 +46,8 @@ dtTrigger: Subject<any> = new Subject<any>();
   onDeleteSelected(id:number){
     this.trainIdToDelete = id;
   }
+
+
 
   ngOnDestroy(): void {
     this.dtTrigger.unsubscribe();

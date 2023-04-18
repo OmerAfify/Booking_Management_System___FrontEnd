@@ -14,7 +14,8 @@ schedulesList : ISchedule[];
 
 scheduleIdToDelete:number;
 
-dtOptions: DataTables.Settings = {};
+dtOptions: DataTables.Settings = {destroy:true,
+  retrieve:true};
 dtTrigger: Subject<any> = new Subject<any>();
 
   constructor(private _scheduleService : SchedulesService, private toastr:ToastrService) { }
@@ -45,5 +46,9 @@ dtTrigger: Subject<any> = new Subject<any>();
   ngOnDestroy(): void {
     this.dtTrigger.unsubscribe();
   }
+
+getTime(){
+  return "asdsd";
+}
 
 }

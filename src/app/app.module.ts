@@ -17,6 +17,9 @@ import { SchedulesModule } from './Schedules/Schedules.module';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
+import { UsersModule } from './Accounts/Accounts.module';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     AppRoutingModule,
     HttpClientModule,
     DataTablesModule,
-
+    FormsModule,
+    NgMultiSelectDropDownModule.forRoot(),
 
 
     BrowserAnimationsModule,
@@ -42,7 +46,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     TrainsModule,
     RoutesModule,
     HomeModule,
-    SchedulesModule
+    SchedulesModule,
+    UsersModule
 
   ],
   providers: [],

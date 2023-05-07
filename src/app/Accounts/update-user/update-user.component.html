@@ -1,0 +1,107 @@
+ <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Update user Form</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item">Update User</li>
+              <li class="breadcrumb-item active">{{email}}</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+   <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+       <div class="row">
+        <div class="col-md-12">
+            <!-- general form elements -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">User Form</h3>
+              </div>
+              <!-- /.card-header -->
+
+
+              <!-- form start -->
+              <form [formGroup]="UpdateUserForm" (ngSubmit)="onSubmitForm()">
+                <div class="card-body">
+<!--server errors-->
+<div *ngIf="serverValidationErrors!=null">
+    <ul class="text-danger">
+        <li *ngFor="let error of serverValidationErrors">
+            {{error}}
+        </li>
+    </ul>
+</div>
+<!--end-of server errors-->
+<div class="row">  
+  <div class="form-group col-6">
+    <label for="name">Email</label>
+    <input [class.border-danger]="!isFieldValid('email')" type="email" formControlName="email" [attr.readonly]="true" class="form-control" id="email" placeholder="Email">
+</div>
+  </div>
+     
+
+<div class="row">
+                  <div class="form-group col-4">
+                    <label for="name">First Name</label>
+                    <input [class.border-danger]="!isFieldValid('name')" type="text" formControlName="firstName" class="form-control" id="firstName" placeholder="First Name">
+                    <span  *ngIf="!isFieldValid('firstName')" class="text-danger">Please enter users first Name.</span>
+                </div>
+
+                <div class="form-group col-4">
+                  <label for="name">Last Name</label>
+                  <input [class.border-danger]="!isFieldValid('lastName')" type="text" formControlName="lastName" class="form-control" id="lastName" placeholder="Last Name">
+                  <span  *ngIf="!isFieldValid('lastName')" class="text-danger">Please enter users Last Name.</span>
+              </div>
+           
+<!--ROLES-->
+      <div class="form-group col-4">
+   <label for="roles">Roles</label>
+                
+   <ng-multiselect-dropdown 
+  [placeholder]="'Please Select Users Roles'"
+  [settings]="dropdownSettings"
+  [data]="rolesList"
+  formControlName="roles">
+</ng-multiselect-dropdown>
+<span  *ngIf="!isFieldValid('roles')" class="text-danger">Please add roles for the user.</span>
+<!--[ngModelOptions]="{standalone: true}" is used for [(ngModel)] to work IDK why-->
+</div>
+ <!-- end of Roles-->
+
+                </div>
+
+           
+                </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                  <button  type="reset" class="btn btn-danger offset-2 col-md-3">Reset</button>
+                  <button type="submit" [disabled]="!isFormValid()" class="btn btn-success offset-2 col-md-3">Submit</button>
+                </div>
+              </form>
+            </div>
+            <!-- /.card -->
+
+
+          </div>
+       </div>
+        <!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  
+

@@ -14,6 +14,12 @@ export interface IAddNewUser {
     password: string
 }
 
+export interface IUpdateUser{
+    firstName: string,
+    lastName: string,
+    roles: string []
+}
+
 export interface IRole{
         id: number,
         name: string,

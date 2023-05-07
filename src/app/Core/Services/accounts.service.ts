@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { IAddTrain, ITrain } from 'src/app/Shared/Interfaces/ITrain';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { IAddNewUser, IRole, IUser } from 'src/app/Shared/Interfaces/IUser';
+import { IAddNewUser, IRole, IUpdateUser, IUser } from 'src/app/Shared/Interfaces/IUser';
 
 
 @Injectable({
@@ -19,7 +19,7 @@ export class AccountsService {
   }
 
   getUserByEmail(email:string){
-    return this.http.get<IUser>(this.baseUrl+"GetUserByEmail/"+email);
+    return this.http.get<IUser>(this.baseUrl+"GetUserByEmail?email="+email);
   }
 
 getAllRoles(){
@@ -32,8 +32,8 @@ getAllRoles(){
   }
 
   
-  UpdateUser(email:string ,updateduser : IAddNewUser){
-    return this.http.put(this.baseUrl+"UpdateUser/"+email, updateduser );
+  UpdateUser(email:string ,updateduser : IUpdateUser){
+    return this.http.put(this.baseUrl+"UpdateUser?email="+email, updateduser );
   }
 
   
